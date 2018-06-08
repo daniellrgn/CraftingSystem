@@ -1,0 +1,22 @@
+{
+	"Items": [
+		{
+			"ID": 0,
+			"Title": "Sword",
+			"Value": 13,
+			"Stackable": false,
+			"Description": "A pointy blade.",
+			"ImgPath": "Fantasy/sword",
+			"Sprite": null
+		},
+		{
+			"ID": 1,
+			"Title": "Potion",
+			"Value": 5,
+			"Stackable": true,
+			"Description": "Grants mysterious powers.",
+			"ImgPath": "Fantasy/potion",
+			"Sprite": null
+		}
+	]
+}

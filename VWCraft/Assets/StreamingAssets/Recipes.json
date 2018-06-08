@@ -1,0 +1,62 @@
+{
+    "Recipes": [
+        {
+            "recipeID": 0,
+            "created": "Magic Sword",
+            "itemID": 5,
+            "shaped": false,
+            "needed": [
+                0,
+                1
+            ]
+        },
+        {
+            "recipeID": 1,
+            "created": "Potion",
+            "itemID": 1,
+            "shaped": false,
+            "needed": [
+                2,
+                6
+            ]
+        },
+        {
+            "recipeID": 2,
+            "created": "Sword",
+            "itemID": 0,
+            "shaped": false,
+            "needed": [
+                3,
+                4
+            ]
+        },
+        {
+            "recipeID": 3,
+            "created": "Great Sword",
+            "itemID": 7,
+            "shaped": true,
+            "needed": [
+                -1,
+                0,
+                -1,
+                -1,
+                3,
+                -1,
+                -1,
+                4,
+                -1
+            ]
+        },
+        {
+            "recipeID": 4,
+            "created": "Something New!",
+            "itemID": 15,
+            "shaped": true,
+            "needed": [
+                1,
+                2,
+                3
+            ]
+        }
+    ]
+}

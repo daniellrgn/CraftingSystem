@@ -1,0 +1,158 @@
+{
+    "Items": [
+        {
+            "ID": 0,
+            "Title": "Rune 1",
+            "Value": 1,
+            "Stackable": true,
+            "Description": "1",
+            "ImgPath": "Runes/runeBlack_rectangle_001",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 1,
+            "Title": "Rune 2",
+            "Value": 2,
+            "Stackable": true,
+            "Description": "2",
+            "ImgPath": "Runes/runeBlack_rectangle_002",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 2,
+            "Title": "Rune 3",
+            "Value": 3,
+            "Stackable": true,
+            "Description": "3",
+            "ImgPath": "Runes/runeBlack_rectangle_003",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 3,
+            "Title": "Rune 4",
+            "Value": 4,
+            "Stackable": true,
+            "Description": "4",
+            "ImgPath": "Runes/runeBlack_rectangle_004",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 4,
+            "Title": "Rune 5",
+            "Value": 5,
+            "Stackable": true,
+            "Description": "5",
+            "ImgPath": "Runes/runeBlack_rectangle_005",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 5,
+            "Title": "Rune 6",
+            "Value": 6,
+            "Stackable": true,
+            "Description": "6",
+            "ImgPath": "Runes/runeBlack_rectangle_006",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 6,
+            "Title": "Rune 7",
+            "Value": 7,
+            "Stackable": true,
+            "Description": "7",
+            "ImgPath": "Runes/runeBlack_rectangle_007",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 7,
+            "Title": "Rune 8",
+            "Value": 8,
+            "Stackable": true,
+            "Description": "8",
+            "ImgPath": "Runes/runeBlack_rectangle_008",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 8,
+            "Title": "Rune 9",
+            "Value": 9,
+            "Stackable": true,
+            "Description": "9",
+            "ImgPath": "Runes/runeBlack_rectangle_009",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 9,
+            "Title": "Rune 10",
+            "Value": 10,
+            "Stackable": true,
+            "Description": "10",
+            "ImgPath": "Runes/runeBlack_rectangle_010",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 10,
+            "Title": "a test item",
+            "Value": 0,
+            "Stackable": true,
+            "Description": "This is a test",
+            "ImgPath": "",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 11,
+            "Title": "New Item With Crafting Requirements",
+            "Value": 0,
+            "Stackable": true,
+            "Description": "This is a test",
+            "ImgPath": "",
+            "Sprite": {
+                "instanceID": 0
+            }
+        },
+        {
+            "ID": 45,
+            "Title": "New Item With Crafting Requirements",
+            "Value": 1,
+            "Stackable": true,
+            "Description": "This is a test",
+            "ImgPath": "",
+            "Sprite": {
+                "instanceID": 11784
+            }
+        },
+        {
+            "ID": 45845,
+            "Title": "Item With Crafting Requirements",
+            "Value": 1,
+            "Stackable": true,
+            "Description": "This is a test",
+            "ImgPath": "",
+            "Sprite": {
+                "instanceID": 11784
+            }
+        }
+    ]
+}

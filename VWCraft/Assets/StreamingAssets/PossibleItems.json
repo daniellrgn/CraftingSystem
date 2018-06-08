@@ -1,0 +1,76 @@
+{
+	"Items": [
+		{
+			"ID": 0,
+			"Title": "Sword",
+			"Value": 13,
+			"Stackable": false,
+			"Description": "A pointy blade.",
+			"ImgPath": "Fantasy1/Item__00",
+			"Sprite": null
+		},
+		{
+			"ID": 1,
+			"Title": "Potion",
+			"Value": 5,
+			"Stackable": true,
+			"Description": "Grants mysterious powers.",
+			"ImgPath": "Fantasy1/Item__29",
+			"Sprite": null
+		},
+		{
+			"ID": 2,
+			"Title": "Water",
+			"Value": 2,
+			"Stackable": true,
+			"Description": "A bottle filled with water.",
+			"ImgPath": "Fantasy1/Item__31",
+			"Sprite": null
+		},
+		{
+			"ID": 3,
+			"Title": "Stick",
+			"Value": 1,
+			"Stackable": true,
+			"Description": "A sturdy branch.",
+			"ImgPath": "Fantasy1/Item__20",
+			"Sprite": null
+		},
+		{
+			"ID": 4,
+			"Title": "Iron Ingot",
+			"Value": 7,
+			"Stackable": true,
+			"Description": "A piece of metal.",
+			"ImgPath": "Fantasy1/Item__39",
+			"Sprite": null
+		},
+		{
+			"ID": 5,
+			"Title": "Magic Sword",
+			"Value": 30,
+			"Stackable": false,
+			"Description": "An enchanted blade.",
+			"ImgPath": "Fantasy1/Item__07",
+			"Sprite": null
+		},
+		{
+			"ID": 6,
+			"Title": "Canis Root Extract",
+			"Value": 5,
+			"Stackable": true,
+			"Description": "Extract from a glowing root.",
+			"ImgPath": "Fantasy1/Item__28",
+			"Sprite": null
+		},
+		{
+			"ID": 7,
+			"Title": "Great Sword",
+			"Value": 20,
+			"Stackable": false,
+			"Description": "A massive sword crafted from the finest materials.",
+			"ImgPath": "Fantasy1/Item__01",
+			"Sprite": null
+		}
+	]
+}
