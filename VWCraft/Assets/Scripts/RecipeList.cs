@@ -26,7 +26,6 @@ public class RecipeList : MonoBehaviour {
 	
 	private void AddButtons()
     {
-        Debug.Log(recipeList.Count);
         for (int i = 0; i < recipeList.Count; i++)
         {
             Recipe recipe = recipeList[i];

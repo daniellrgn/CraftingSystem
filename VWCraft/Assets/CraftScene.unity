@@ -295,6 +295,73 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &803096372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 803096375}
+  - component: {fileID: 803096374}
+  - component: {fileID: 803096373}
+  m_Layer: 0
+  m_Name: ItemRecipeTool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &803096373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 803096372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f5fc83ccece0c4db99b2a449c90fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dbID: rune_Recipes
+  recipe:
+    recipeID: 1
+    created: a new rune!
+    itemID: 52
+    needed: 0000000001000000020000000300000004000000
+--- !u!114 &803096374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 803096372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2e8f1d9e966734294a5f58e5fd1562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dbID: 
+  item:
+    ID: -1
+    Title: 
+    Value: 0
+    Stackable: 0
+    Description: 
+    ImgPath: 
+    Sprite: {fileID: 0}
+--- !u!4 &803096375
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 803096372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &811620145
 Prefab:
   m_ObjectHideFlags: 0
@@ -414,101 +481,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1007810230
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1007810232}
-  - component: {fileID: 1007810231}
-  m_Layer: 0
-  m_Name: RecipeConstructor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1007810231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1007810230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4f5fc83ccece0c4db99b2a449c90fa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dbID: Recipes
-  recipe:
-    recipeID: 0
-    created: 
-    itemID: 0
-    needed: 
---- !u!4 &1007810232
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1007810230}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.348526, y: -1.413281, z: 0.6408119}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1060215470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1060215472}
-  - component: {fileID: 1060215471}
-  m_Layer: 0
-  m_Name: ItemConstructor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1060215471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1060215470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b2e8f1d9e966734294a5f58e5fd1562, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dbID: rune_items
-  item:
-    ID: -1
-    Title: 
-    Value: 0
-    Stackable: 0
-    Description: 
-    ImgPath: 
-    Sprite: {fileID: 0}
---- !u!4 &1060215472
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1060215470}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.348526, y: -1.413281, z: 0.6408119}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1147393708 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1971514220265700, guid: d69b088822ee2ad479b4402ddbe7b21d,
@@ -772,7 +744,7 @@ Prefab:
     - target: {fileID: 224020754597185728, guid: d69b088822ee2ad479b4402ddbe7b21d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000038146973
+      value: 0.0000038146973
       objectReference: {fileID: 0}
     - target: {fileID: 224468762843885232, guid: d69b088822ee2ad479b4402ddbe7b21d,
         type: 2}
@@ -848,6 +820,26 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473685072264474, guid: d69b088822ee2ad479b4402ddbe7b21d,
+        type: 2}
+      propertyPath: fileName
+      value: PossibleItems.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179268691903000, guid: d69b088822ee2ad479b4402ddbe7b21d,
+        type: 2}
+      propertyPath: fileName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114723119620152702, guid: d69b088822ee2ad479b4402ddbe7b21d,
+        type: 2}
+      propertyPath: fileName
+      value: PossibleItems.json
+      objectReference: {fileID: 0}
+    - target: {fileID: 114856158032908374, guid: d69b088822ee2ad479b4402ddbe7b21d,
+        type: 2}
+      propertyPath: fileName
+      value: Recipes.json
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d69b088822ee2ad479b4402ddbe7b21d, type: 2}

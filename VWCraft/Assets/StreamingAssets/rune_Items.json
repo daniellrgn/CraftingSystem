@@ -109,50 +109,6 @@
             "Sprite": {
                 "instanceID": 0
             }
-        },
-        {
-            "ID": 10,
-            "Title": "a test item",
-            "Value": 0,
-            "Stackable": true,
-            "Description": "This is a test",
-            "ImgPath": "",
-            "Sprite": {
-                "instanceID": 0
-            }
-        },
-        {
-            "ID": 11,
-            "Title": "New Item With Crafting Requirements",
-            "Value": 0,
-            "Stackable": true,
-            "Description": "This is a test",
-            "ImgPath": "",
-            "Sprite": {
-                "instanceID": 0
-            }
-        },
-        {
-            "ID": 45,
-            "Title": "New Item With Crafting Requirements",
-            "Value": 1,
-            "Stackable": true,
-            "Description": "This is a test",
-            "ImgPath": "",
-            "Sprite": {
-                "instanceID": 11784
-            }
-        },
-        {
-            "ID": 45845,
-            "Title": "Item With Crafting Requirements",
-            "Value": 1,
-            "Stackable": true,
-            "Description": "This is a test",
-            "ImgPath": "",
-            "Sprite": {
-                "instanceID": 11784
-            }
         }
     ]
 }

@@ -58,7 +58,7 @@ public class ItemDB : MonoBehaviour {
     public int AddItemAsJson(string dbID, Item item)
     {
         Debug.Log(Application.streamingAssetsPath);
-        string dbPath = Application.streamingAssetsPath + "/" + dbID + ".json";
+        string dbPath = Application.streamingAssetsPath + "/" + dbID + ".item.json";
         Debug.Log(dbPath);
         string curItemsAsJson;
         string newItemsAsJson;
@@ -104,6 +104,74 @@ public class ItemDB : MonoBehaviour {
             newItemsAsJson = ItemJsonHelper.ToJson<Item>(newItemArray, true);
         }
         Debug.Log(newItemsAsJson);
+        try
+        {
+            File.WriteAllText(dbPath, newItemsAsJson);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.ToString());
+            return 1;
+        }
+        return 0;
+    }
+
+    public int RemoveItemAsJson(string dbID, Item item)
+    {
+        Debug.Log(Application.streamingAssetsPath);
+        string dbPath = Application.streamingAssetsPath + "/" + dbID + ".item.json";
+        Debug.Log(dbPath);
+        string curItemsAsJson;
+        string newItemsAsJson;
+        Item[] curItemArray;
+        Item[] newItemArray;
+        if (System.IO.File.Exists(dbPath))//append item
+        {
+            Debug.Log("FILE EXISTS");
+            try
+            {
+                curItemsAsJson = File.ReadAllText(dbPath);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("FAILED TO READ JSON");
+                Debug.Log(e.ToString());
+                return 1;
+            }
+            Debug.Log(curItemsAsJson);
+            curItemArray = ItemJsonHelper.FromJson<Item>(curItemsAsJson);
+            int j = -1;
+            for (int i = 0; i < curItemArray.Length; i++)
+            {
+                if (item.ID == curItemArray[i].ID)
+                {
+                    j = i;
+                }
+            }
+            newItemArray = new Item[curItemArray.Length - 1];
+            if( j != -1)
+            {
+                int k = 0;
+                for (int i = 0; i < curItemArray.Length; i++)
+                {
+                    if (i != j)
+                    {
+                        newItemArray[k] = curItemArray[i];
+                        k++;
+                    }
+                }
+            }
+            else
+            {
+                return 0;
+            }
+            newItemsAsJson = ItemJsonHelper.ToJson<Item>(newItemArray, true);
+        }
+        else//add first item
+        {
+            Debug.Log("Json File is Empty. Cannot Remove Item.");
+            return 1;
+        }
         try
         {
             File.WriteAllText(dbPath, newItemsAsJson);

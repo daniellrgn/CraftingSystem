@@ -2,17 +2,21 @@
 using System.Collections;
 using UnityEditor;
 
-[CustomEditor(typeof(CreateItem))]
-public class CreateItemEditor : Editor
+[CustomEditor(typeof(ItemTool))]
+public class ItemToolEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        CreateItem myScript = (CreateItem)target;
+        ItemTool myScript = (ItemTool)target;
         if (GUILayout.Button("Create Item"))
         {
             myScript.AddItemToItemDB();
+        }
+        if(GUILayout.Button("Destroy Item"))
+        {
+            myScript.RemoveItemFromItemDB();
         }
     }
 }

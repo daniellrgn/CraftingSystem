@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour {
         }
         if (playerItems.fileName != "")
         {
-            List<Item> playerItemList = playerItems.GetItemList();
+            List<Item> playerItemList = itemDB.GetItemList();
             for (int i = 0; i < playerItemList.Count; i++)
             {
                 AddItemByID(playerItemList[i].ID, 5, playerItems);

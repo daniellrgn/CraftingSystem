@@ -17,12 +17,14 @@ public class RecipeDB : MonoBehaviour {
     {
         string filePath = Application.streamingAssetsPath + "/" + fileName;
         RecipesAsJson = File.ReadAllText(filePath);
-        //RecipeArray = RecipeJsonHelper.FromJson<CraftRecipe>(RecipesAsJson);
+        /*
         RecipeArray = new CraftRecipe[] {new CraftRecipe(0, "Magic Sword", 5, false, new int[]{0, 1}),
                                          new CraftRecipe(1, "Potion", 1, false, new int[]{2, 6}),
                                          new CraftRecipe(2, "Sword", 0, false, new int[]{3, 4}),
                                          new CraftRecipe(3, "GreatSword", 7, true, new int[]{-1, 0, -1, -1, 3, -1, -1, 4, -1}),
                                          new CraftRecipe(4, "Something NEw", 5, false, new int[]{1,2,3 })};
+        */
+        RecipeArray = RecipeJsonHelper.FromJson<CraftRecipe>(RecipesAsJson);
         LoadRDB();
     }
 
@@ -57,7 +59,7 @@ public class RecipeDB : MonoBehaviour {
     public int AddRecipeAsJson(string dbID, Recipe recipe)
     {
         Debug.Log(Application.streamingAssetsPath);
-        string dbPath = Application.streamingAssetsPath + "/" + dbID + ".json";
+        string dbPath = Application.streamingAssetsPath + "/" + dbID + ".recipe.json";
         Debug.Log(dbPath);
         string curRecipesAsJson;
         string newRecipesAsJson;
@@ -102,6 +104,75 @@ public class RecipeDB : MonoBehaviour {
             newRecipeArray = new Recipe[1];
             newRecipeArray[0] = recipe;
             newRecipesAsJson = RecipeJsonHelper.ToJson<Recipe>(newRecipeArray, true);
+        }
+        Debug.Log(newRecipesAsJson);
+        try
+        {
+            File.WriteAllText(dbPath, newRecipesAsJson);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.ToString());
+            return 1;
+        }
+        return 0;
+    }
+
+    public int RemoveRecipeAsJson(string dbID, Recipe recipe)
+    {
+        Debug.Log(Application.streamingAssetsPath);
+        string dbPath = Application.streamingAssetsPath + "/" + dbID + ".recipe.json";
+        Debug.Log(dbPath);
+        string curRecipesAsJson;
+        string newRecipesAsJson;
+        Recipe[] curRecipeArray;
+        Recipe[] newRecipeArray;
+        if (System.IO.File.Exists(dbPath))//append Recipe
+        {
+            Debug.Log("FILE EXISTS");
+            try
+            {
+                curRecipesAsJson = File.ReadAllText(dbPath);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("FAILED TO READ JSON");
+                Debug.Log(e.ToString());
+                return 1;
+            }
+            Debug.Log(curRecipesAsJson);
+            curRecipeArray = RecipeJsonHelper.FromJson<Recipe>(curRecipesAsJson);
+            int j = -1;
+            for (int i = 0; i < curRecipeArray.Length; i++)
+            {
+                if (recipe.recipeID == curRecipeArray[i].recipeID)
+                {
+                    j = i;
+                }
+            }
+            newRecipeArray = new Recipe[curRecipeArray.Length - 1];
+            if (j != -1)
+            {
+                int k = 0;
+                for (int i = 0; i < curRecipeArray.Length; i++)
+                {
+                    if (i != j)
+                    {
+                        newRecipeArray[k] = curRecipeArray[i];
+                        k++;
+                    }
+                }
+            }
+            else
+            {
+                return 0;
+            }
+            newRecipesAsJson = RecipeJsonHelper.ToJson<Recipe>(newRecipeArray, true);
+        }
+        else//remove Recipe from empty file
+        {
+            Debug.Log("Json File is Empty. Cannot Remove Recipe.");
+            return 1;
         }
         Debug.Log(newRecipesAsJson);
         try

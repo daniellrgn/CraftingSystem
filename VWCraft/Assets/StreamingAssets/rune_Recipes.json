@@ -1,0 +1,41 @@
+{
+    "Recipes": [
+        {
+            "recipeID": 0,
+            "created": "a new rune!",
+            "itemID": 50,
+            "needed": [
+                0,
+                1
+            ]
+        },
+        {
+            "recipeID": 2,
+            "created": "a new rune!",
+            "itemID": 52,
+            "needed": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ]
+        },
+        {
+            "recipeID": 1,
+            "created": "a new rune!",
+            "itemID": 52,
+            "needed": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    ]
+}
