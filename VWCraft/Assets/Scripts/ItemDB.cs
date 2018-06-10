@@ -266,7 +266,7 @@ public class ItemDB : MonoBehaviour
         }
         try
         {
-            string conn = "URI=file:" + Application.dataPath + "/" + databaseName; //Path to database.
+            string conn = "URI=file:" + Application.dataPath + "/" + database; //Path to database.
             IDbConnection dbconn;
             dbconn = (IDbConnection)new SqliteConnection(conn);
             dbconn.Open(); //Open connection to the database.
