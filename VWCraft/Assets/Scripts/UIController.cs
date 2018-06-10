@@ -52,14 +52,16 @@ public class UIController : MonoBehaviour
                 {
                     foreach (Transform slot in child.transform)
                     {
-                        GameObject.Destroy(slot.gameObject);
+                        if (slot.tag == "item")
+                        {
+                            GameObject.Destroy(slot.gameObject);
+                        }
                     }
                 }
                 for (int i = 0; i < lootScript.numSlots; i++)
                 {
                     lootScript.items[i] = new Item();
                     lootScript.slots[i].GetComponent<Slot>().slotNum = i;
-
                 }
                 lootUI.SetActive(false);
             }

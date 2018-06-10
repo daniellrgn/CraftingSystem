@@ -73,7 +73,10 @@ public class ItemDB : MonoBehaviour
     {
         if (database == "")
         {
+            print(database);
             database = databaseName;
+            print(database);
+
         }
         if (database != "")
         {
@@ -188,7 +191,6 @@ public class ItemDB : MonoBehaviour
                 dbconn = null;
                 reader.Close();
                 reader = null;
-
                 return item;
             }
             catch (Exception e)
@@ -364,13 +366,12 @@ public class ItemDB : MonoBehaviour
 public class Item
 {
     public int ID;
-    public String itemType;
     public string Title;
     public int Value;
     public bool Stackable;
     public string Description;
     public string ImgPath;
-    public Sprite Sprite;
+    private Sprite Sprite;
 
     public Item(int id, string title, int value, bool stackable, string description, string imgPath)
     {
@@ -381,25 +382,21 @@ public class Item
         Description = description;
         ImgPath = imgPath;
         Sprite = Resources.Load<Sprite>("Sprites/Items/" + imgPath);
-        itemType = this.GetType().FullName;
-    }
-
-    public Item(int id, string title, int value, bool stackable, string description, Sprite sprite)
-    {
-        ID = id;
-        Title = title;
-        Value = value;
-        Stackable = stackable;
-        Description = description;
-        Sprite = sprite;
-        itemType = this.GetType().FullName;
-
     }
 
     public Item()
     {
         ID = -1;
-        itemType = this.GetType().FullName;
 
+    }
+
+    public Sprite GetSprite()
+    {
+        return Sprite;
+    }
+
+    public void SetSprite(Sprite newSprite)
+    {
+        Sprite = newSprite;
     }
 }

@@ -340,16 +340,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2e8f1d9e966734294a5f58e5fd1562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseName: 
+  databaseName: ItemAndRecipeDatabase.db
   item:
-    ID: -1
-    itemType: Item
-    Title: 
-    Value: 0
+    ID: 0
+    Title: Sword
+    Value: 13
     Stackable: 0
-    Description: 
-    ImgPath: 
-    Sprite: {fileID: 0}
+    Description: A pointy blade.
+    ImgPath: Fantasy1/Item__00
 --- !u!4 &803096375
 Transform:
   m_ObjectHideFlags: 0
@@ -740,12 +738,12 @@ Prefab:
     - target: {fileID: 224020754597185728, guid: d69b088822ee2ad479b4402ddbe7b21d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000045776367
+      value: 0.0000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 224020754597185728, guid: d69b088822ee2ad479b4402ddbe7b21d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000038146973
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 224468762843885232, guid: d69b088822ee2ad479b4402ddbe7b21d,
         type: 2}
