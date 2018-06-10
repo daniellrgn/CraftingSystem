@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CraftButton : MonoBehaviour, ICraftStation {
+public class CraftButton : MonoBehaviour, ICraftStation<CraftRecipe> {
     public Button button;
+    public List<CraftRecipe> recipeList { get; set; }
     public Inventory Input { get; set; }
     public Inventory Output { get; set; }
+
     ItemDB itemDB;
     RecipeDB recipeDB;
 
@@ -15,6 +16,7 @@ public class CraftButton : MonoBehaviour, ICraftStation {
         button.onClick.AddListener(Craft);
         itemDB = GameObject.FindGameObjectWithTag("ItemDB").transform.GetComponent<ItemDB>();
         recipeDB = transform.parent.GetChild(0).GetComponent<RecipeDB>();
+        recipeList = recipeDB.GetRecipeList<CraftRecipe>();
         Input = transform.parent.GetChild(2).GetComponent<Inventory>();
         Output = transform.parent.GetChild(3).GetComponent<Inventory>();
     }
@@ -22,7 +24,6 @@ public class CraftButton : MonoBehaviour, ICraftStation {
     public void Craft()
     {
         List<Item> inputItems = Input.items;
-        List<CraftRecipe> recipeList = recipeDB.GetRecipeList<CraftRecipe>();
         int[] allItemIDs = new int[inputItems.Count];
         for (int i = 0; i < inputItems.Count; i++)
         {
@@ -45,7 +46,7 @@ public class CraftButton : MonoBehaviour, ICraftStation {
         {
             RemoveFromInput();
         }
-        Output.AddItemByID(itemID, dB:itemDB);
+        Output.TryAddItemByID(itemID, dB:itemDB);
     }
 
     private void RemoveFromInput()

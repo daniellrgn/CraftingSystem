@@ -1,18 +1,13 @@
 ﻿using Mono.Data.Sqlite;
 using System.Data;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using System;
 using System.Reflection;
 
 public class ItemDB : MonoBehaviour
 {
     public string fileName;
-
-    private List<Item> itemData = new List<Item>();
-    private Item[] itemArray;
     private string itemsAsJson;
 
 
@@ -186,7 +181,6 @@ public class ItemDB : MonoBehaviour
                 IDataReader reader = dbcmd.ExecuteReader();
 
                 reader.Read();
-                string itemTypeString = reader[1].ToString();
                 string serializedItem = reader[2].ToString();
 
                 T item = JsonUtility.FromJson<T>(serializedItem);
@@ -234,10 +228,12 @@ public class ItemDB : MonoBehaviour
 
                 while (reader.Read())
                 {
-                    string itemTypeString = reader[1].ToString();
                     string serializedItem = reader[2].ToString();
                     T item = JsonUtility.FromJson<T>(serializedItem);
-                    allItems.Add(item);
+                    if (item != null)
+                    {
+                        allItems.Add(item);
+                    }
                 }
 
 
@@ -346,65 +342,5 @@ public class ItemDB : MonoBehaviour
     {
         return databaseName;
     }
-
-    // Use this for initialization
-    void Start()
-    {
-
-        if (databaseName != "")
-        {
-            itemArray = GetItemList<Item>().ToArray();
-            LoadIDB();
-        }
-    }
-
-    private void LoadIDB()
-    {
-        Item it;
-        for (int i = 0; i < itemArray.Length; i++)
-        {
-            it = itemArray[i];
-            Item addIt = new Item(it.ID, it.Title, it.Value, it.Stackable, it.Description, it.ImgPath);
-            itemData.Add(addIt);
-        }
-    }
 }
 
-[System.Serializable]
-public class Item
-{
-    public int ID;
-    public string Title;
-    public int Value;
-    public bool Stackable;
-    public string Description;
-    public string ImgPath;
-    private Sprite Sprite;
-
-    public Item(int id, string title, int value, bool stackable, string description, string imgPath)
-    {
-        ID = id;
-        Title = title;
-        Value = value;
-        Stackable = stackable;
-        Description = description;
-        ImgPath = imgPath;
-        Sprite = Resources.Load<Sprite>("Sprites/Items/" + imgPath);
-    }
-
-    public Item()
-    {
-        ID = -1;
-
-    }
-
-    public Sprite GetSprite()
-    {
-        return Sprite;
-    }
-
-    public void SetSprite(Sprite newSprite)
-    {
-        Sprite = newSprite;
-    }
-}

@@ -1,24 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class Oven : MonoBehaviour, ICraftStation {
+public class Oven : MonoBehaviour, ICraftStation<CraftRecipe> {
     public int temp;
     public GameObject ovenCraftInterface;
     public GameObject inventory;
     public Inventory Input { get; set; }
+    public List<CraftRecipe> recipeList { get; set; }
     public List<GameObject> map = new List<GameObject>();
 
-    private ItemDB itemDB;
     private RecipeDB recipeDB;
     private List<GameObject> inputs = new List<GameObject>();
 
     // Use this for initialization
     void Start()
     {
-        itemDB = GameObject.FindGameObjectWithTag("ItemDB").transform.GetComponent<ItemDB>();
         recipeDB = GameObject.FindGameObjectWithTag("RecipeDB").transform.GetComponent<RecipeDB>();
         Input = ovenCraftInterface.transform.Find("Input").GetComponent<Inventory>();
     }
@@ -28,7 +24,7 @@ public class Oven : MonoBehaviour, ICraftStation {
         ItemData itemData = other.GetComponent<ItemData>();
         if (itemData)
         {
-            Input.AddItemByID(itemData.item.ID, itemData.GetAmount());
+            Input.TryAddItemByID(itemData.item.ID, itemData.GetAmount());
             inputs.Add(other.gameObject);
         }
     }

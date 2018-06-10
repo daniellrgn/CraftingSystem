@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
+﻿
 [System.Serializable]
 public class TableAttribute {
     public string attribute;  //table attributes

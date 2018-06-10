@@ -45,8 +45,10 @@ public class RecipeList : MonoBehaviour {
             int num = inventory.CountItemByID(itemIDs[i]);
             if (itemIDs[i] >= 0 && num > 0)
             {
-                input.AddItemAtIndex(itemIDs[i], i);
-                inventory.RemoveItemByID(itemIDs[i]);
+                if (input.TryAddItemAtIndex(itemIDs[i], i))
+                {
+                    inventory.RemoveItemByID(itemIDs[i]);
+                }
             }
         }
     }

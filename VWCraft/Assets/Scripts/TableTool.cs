@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class TableTool : MonoBehaviour
 {
-    private ItemDB database = new ItemDB();
+    private ItemDB database = null;//new ItemDB();
     public string databaseName;
     public string tableName;
     public List<TableAttribute> tableAttributes = new List<TableAttribute>();

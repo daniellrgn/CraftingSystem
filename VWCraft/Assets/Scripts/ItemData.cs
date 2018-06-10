@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,7 +9,6 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public int amount;      // The amount of the item in the stack
     public int slot;        // The slot index within the inventory that
     public Inventory inv;
-    //private Vector2 offset;
     public Tooltip tooltip;
 
     private GameObject residual = null;
@@ -49,8 +47,7 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
                     splitStack = true;
                 }
-                //offset = eventData.position - new Vector2(this.transform.position.x, this.transform.position.y);
-                transform.position = eventData.position; //- offset;
+                transform.position = eventData.position;
                 transform.SetParent(transform.root); // Ensures object is rendered on top of other panels
                 GetComponent<CanvasGroup>().blocksRaycasts = false;
             }

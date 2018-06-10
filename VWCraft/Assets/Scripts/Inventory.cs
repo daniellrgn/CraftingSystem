@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +19,6 @@ public class Inventory : MonoBehaviour {
     private void Start()
     {
         itemDB = GameObject.FindGameObjectWithTag("ItemDB").GetComponent<ItemDB>();
-        playerItems = GetComponent<ItemDB>();
         inventoryPanel = transform.GetChild(0).gameObject;
         slotPanel = inventoryPanel.transform.GetChild(0).gameObject;
 
@@ -31,18 +29,22 @@ public class Inventory : MonoBehaviour {
             slots[i].GetComponent<Slot>().slotNum = i;
             slots[i].transform.SetParent(slotPanel.transform, false);
         }
+
+        // Adds items to inventory for testing.
+        playerItems = GetComponent<ItemDB>();
         if (playerItems.fileName != "")
         {
             List<Item> playerItemList = itemDB.GetItemList<Item>();
             for (int i = 0; i < playerItemList.Count; i++)
             {
-                AddItemByID(playerItemList[i].ID, 5, playerItems);
-            }            
+                TryAddItemByID(playerItemList[i].ID, 10, playerItems);
+            }           
         }
+        //
     }
 
     // Add an item to the first available inventory UI slot, or increment the stack.
-    public void AddItemByID(int ID, int amount = 1, ItemDB dB = null)
+    public bool TryAddItemByID(int ID, int amount = 1, ItemDB dB = null)
     {
         if (dB == null)
         {
@@ -50,11 +52,13 @@ public class Inventory : MonoBehaviour {
         }
         Item itemToAdd = dB.GetItem<Item>(ID);
         int idx = GetItemIndexByID(ID);
+        bool success = false;
 
         if (itemToAdd.Stackable && idx >= 0)
         {
             ItemData existData = GetSlotByIndex(idx).GetItemData();
             existData.SetAmount(existData.amount + amount);
+            success = true;
         }
         else
         {
@@ -63,6 +67,7 @@ public class Inventory : MonoBehaviour {
             {
                 if (items[i].ID <= -1)
                 {
+                    success = true;
                     items[i] = itemToAdd;
                     GameObject itemObj = Instantiate(inventoryItem);
                     ItemData newData = itemObj.GetComponent<ItemData>();
@@ -89,14 +94,18 @@ public class Inventory : MonoBehaviour {
                 }
             }
         }
+        return success;
     }
 
-    public void AddItemAtIndex(int ID, int index, int amount = 1, ItemDB dB = null)
+    public bool TryAddItemAtIndex(int ID, int index, int amount = 1, ItemDB dB = null)
     {
         if (dB == null)
         {
             dB = itemDB;
         }
+
+        bool success = false;
+
         if (index >= 0 && index < slots.Count && amount > 0)
         {
             Item itemToAdd = dB.GetItem<Item>(ID);
@@ -106,10 +115,7 @@ public class Inventory : MonoBehaviour {
                 if (itemToAdd.Stackable && itemToAdd.ID == existData.item.ID)
                 {
                     existData.SetAmount(existData.amount + amount);
-                }
-                else
-                {
-                    AddItemAtIndex(ID, index + 1, amount, dB);
+                    success = true;
                 }
             }
             else
@@ -134,17 +140,16 @@ public class Inventory : MonoBehaviour {
                     {
                         itemObj.GetComponent<Image>().sprite = itemToAdd.GetSprite();
                     }
-                    if (itemToAdd.Stackable)
+
+                    if (amount == 1 || itemToAdd.Stackable)
                     {
                         newData.SetAmount(amount);
-                    }
-                    else
-                    {
-                        AddItemAtIndex(ID, index + 1, amount - 1, dB);
+                        success = true;
                     }
                 }
             }
         }
+        return success;
     }
 
     public int RemoveItemAtIndex(int index, int amountToRemove = 1)

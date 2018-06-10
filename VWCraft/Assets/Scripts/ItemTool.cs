@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class ItemTool : MonoBehaviour
 {
-    private ItemDB database = new ItemDB();
+    private ItemDB database = null; //new ItemDB();
     public string databaseName;
     public Item item;
 

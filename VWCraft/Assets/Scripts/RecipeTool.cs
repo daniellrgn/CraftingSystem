@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class RecipeTool : MonoBehaviour
 {
-    private RecipeDB database = new RecipeDB();
+    private RecipeDB database = null;//new RecipeDB();
     public string databaseName;
     public Recipe recipe;
 

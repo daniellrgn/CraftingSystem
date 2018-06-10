@@ -1,37 +1,13 @@
 ﻿using Mono.Data.Sqlite;
 using System.Data;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using System;
-using System.Reflection;
 
 public class RecipeDB : MonoBehaviour
 {
-
-    public string fileName;
     public string databaseName;
-
-    private List<CraftRecipe> recipeData = new List<CraftRecipe>();
-    private CraftRecipe[] RecipeArray;
     private string RecipesAsJson;
-
-
-
-    // Use this for initialization
-    void Start()
-    {
-        //string filePath = Application.streamingAssetsPath + "/" + fileName;
-        //RecipesAsJson = File.ReadAllText(filePath);
-        //RecipeArray = RecipeJsonHelper.FromJson<CraftRecipe>(RecipesAsJson);
-        RecipeArray = new CraftRecipe[] {new CraftRecipe(0, "Magic Sword", 5, false, new int[]{0, 1}),
-                                         new CraftRecipe(1, "Potion", 1, false, new int[]{2, 6}),
-                                         new CraftRecipe(2, "Sword", 0, false, new int[]{3, 4}),
-                                         new CraftRecipe(3, "GreatSword", 7, true, new int[]{-1, 0, -1, -1, 3, -1, -1, 4, -1}),
-                                         new CraftRecipe(4, "Something NEw", 5, false, new int[]{1,2,3 })};
-        LoadRDB();
-    }
 
     //gets specified recipe from database
     public T getRecipe<T>(int recipeID)
@@ -50,7 +26,6 @@ public class RecipeDB : MonoBehaviour
                 IDataReader reader = dbcmd.ExecuteReader();
 
                 reader.Read();
-                string recipeTypeString = reader[1].ToString();
                 string serializedRecipe = reader[2].ToString();
                 T recipe = JsonUtility.FromJson<T>(serializedRecipe);
 
@@ -147,7 +122,6 @@ public class RecipeDB : MonoBehaviour
 
                 while (reader.Read())
                 {
-                    string itemTypeString = reader[1].ToString();
                     string serializedRecipe = reader[2].ToString();
                     T recipe = JsonUtility.FromJson<T>(serializedRecipe);
                     if (recipe != null)
@@ -257,42 +231,5 @@ public class RecipeDB : MonoBehaviour
     public string GetDatabaseName()
     {
         return databaseName;
-    }
-
-    private void LoadRDB()
-    {
-        CraftRecipe recipe;
-
-        foreach (CraftRecipe recipeItem in GetRecipeList<CraftRecipe>())
-        {
-            recipeData.Add(recipeItem);
-        }
-    }
-}
-
-[System.Serializable]
-public class CraftRecipe : Recipe
-{
-    public bool shaped;
-
-    public CraftRecipe(int recipeID, string created, int itemID, bool shaped, int[] needed) : base(recipeID, created, itemID, needed)
-    {
-        this.shaped = shaped;
-    }
-
-    public override int Evaluate(int[] input)
-    {
-        if (shaped && base.CheckItemsExact(input))
-        {
-            return base.itemID;
-        }
-        else if (!shaped && base.CheckItems(input))
-        {
-            return base.itemID;
-        }
-        else
-        {
-            return -1;
-        }
     }
 }
