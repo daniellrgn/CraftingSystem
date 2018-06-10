@@ -24,6 +24,9 @@ public class ItemDB : MonoBehaviour
     /// 
     /// 
     /////////////////////////////////////////////////////////////////////////
+    
+
+    //Creates table with =in the named database string, or the database attached to this script if null.
     public void CreateTable(String tableName, List<TableAttribute> tableAttributes, String database)
     {
         if (database == "")
@@ -72,6 +75,7 @@ public class ItemDB : MonoBehaviour
         }
     }
 
+    //insert item within specified item table in database, and a new item table if the user chooses
     public void InsertItem(Item newItem, String database, String newTableName = "")
     {
         if (database == "")
@@ -211,7 +215,7 @@ public class ItemDB : MonoBehaviour
     }
 
 
-
+    //gets list of all items within the ITEM table
     public List<T> GetItemList<T>()
     {
         if (databaseName != "")
@@ -261,6 +265,7 @@ public class ItemDB : MonoBehaviour
         }
     }
 
+    //removes item from database
     public int RemoveItem(Item item, String database)
     {
         if (database == "")

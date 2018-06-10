@@ -32,6 +32,7 @@ public class RecipeDB : MonoBehaviour
         LoadRDB();
     }
 
+    //gets specified recipe from database
     public T getRecipe<T>(int recipeID)
     {
         if (databaseName != "")
@@ -72,6 +73,7 @@ public class RecipeDB : MonoBehaviour
         return default(T);
     }
 
+    //inserts recipe within database
     public void InsertRecipe(Recipe newRecipe, String database)
     {
         if(database == "")
@@ -125,6 +127,7 @@ public class RecipeDB : MonoBehaviour
 
     }
 
+    //retrieves recipe list
     public List<T> GetRecipeList<T>()
     {
         if (databaseName != "")
@@ -204,6 +207,7 @@ public class RecipeDB : MonoBehaviour
         return true;
     }
 
+    //removes recipe from database
     public int RemoveRecipe(Recipe recipe, String database)
     {
         if (database == "")
