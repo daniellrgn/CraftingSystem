@@ -30,13 +30,13 @@ public class LootInventory : Inventory {
 
     public void AddItem(int ID)
     {
-        Item itemToAdd = idb.GetItemByID(ID);
+        Item itemToAdd = idb.GetItem<Item>(ID);
         int index = AtIndex(itemToAdd);
         if (index > -1)//item exists in inventory
         {
             if (itemToAdd.Stackable)
             {
-                ItemData iData = slots[index].transform.GetChild(0).GetComponent<ItemData>();
+                ItemData iData = slots[index].GetComponent<Slot>().GetItemData();
                 iData.amount++;
                 iData.transform.GetChild(0).GetComponent<Text>().text = iData.amount.ToString();
             }
@@ -56,7 +56,14 @@ public class LootInventory : Inventory {
                     newData.SetAmount(1);
                     itemObj.transform.SetParent(slots[i].transform, false);
                     itemObj.transform.position = itemObj.transform.parent.position;
-                    itemObj.GetComponent<Image>().sprite = itemToAdd.Sprite;
+                    if (itemToAdd.GetSprite() == null)
+                    {
+                        itemObj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/" + itemToAdd.ImgPath);
+                    }
+                    else
+                    {
+                        itemObj.GetComponent<Image>().sprite = itemToAdd.GetSprite();
+                    }
                     if (itemToAdd.Stackable)
                     {
                         newData.amount = 1;

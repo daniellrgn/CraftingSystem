@@ -50,7 +50,7 @@ public class Oven : MonoBehaviour, ICraftStation {
 
     public void Craft() {
         List<Item> inputItems = Input.items;
-        List<CraftRecipe> recipeList = recipeDB.GetRecipeList();
+        List<CraftRecipe> recipeList = recipeDB.GetRecipeList<CraftRecipe>();
 
         int[] allItemIDs = new int[inputItems.Count];
         for (int i = 0; i < inputItems.Count; i++)

@@ -10,6 +10,7 @@ TagManager:
   - ItemDB
   - RecipeDB
   - lootUITitle
+  - item
   layers:
   - Default
   - TransparentFX

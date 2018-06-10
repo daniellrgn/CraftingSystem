@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour {
         }
         if (playerItems.fileName != "")
         {
-            List<Item> playerItemList = playerItems.GetItemList();
+            List<Item> playerItemList = itemDB.GetItemList<Item>();
             for (int i = 0; i < playerItemList.Count; i++)
             {
                 AddItemByID(playerItemList[i].ID, 5, playerItems);
@@ -48,8 +48,9 @@ public class Inventory : MonoBehaviour {
         {
             dB = itemDB;
         }
-        Item itemToAdd = dB.GetItemByID(ID);
+        Item itemToAdd = dB.GetItem<Item>(ID);
         int idx = GetItemIndexByID(ID);
+
         if (itemToAdd.Stackable && idx >= 0)
         {
             ItemData existData = GetSlotByIndex(idx).GetItemData();
@@ -71,7 +72,14 @@ public class Inventory : MonoBehaviour {
                     newData.SetAmount(1);
                     itemObj.transform.SetParent(slots[i].transform, false);
                     itemObj.transform.position = itemObj.transform.parent.position; // Set object to slot position
-                    itemObj.GetComponent<Image>().sprite = itemToAdd.Sprite;
+                    if (itemToAdd.GetSprite() == null)
+                    {
+                        itemObj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/" + itemToAdd.ImgPath);
+                    }
+                    else
+                    {
+                        itemObj.GetComponent<Image>().sprite = itemToAdd.GetSprite();
+                    }
                     if (itemToAdd.Stackable)
                     {
                         newData.SetAmount(amount);
@@ -91,7 +99,7 @@ public class Inventory : MonoBehaviour {
         }
         if (index >= 0 && index < slots.Count && amount > 0)
         {
-            Item itemToAdd = dB.GetItemByID(ID);
+            Item itemToAdd = dB.GetItem<Item>(ID);
             ItemData existData = GetSlotByIndex(index).GetItemData();
             if (existData)
             {
@@ -118,7 +126,14 @@ public class Inventory : MonoBehaviour {
                     newData.SetAmount(1);
                     itemObj.transform.SetParent(slots[index].transform, false);
                     itemObj.transform.position = itemObj.transform.parent.position; // Set object to slot position
-                    itemObj.GetComponent<Image>().sprite = itemToAdd.Sprite;
+                    if (itemToAdd.GetSprite() == null)
+                    {
+                        itemObj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Items/" + itemToAdd.ImgPath);
+                    }
+                    else
+                    {
+                        itemObj.GetComponent<Image>().sprite = itemToAdd.GetSprite();
+                    }
                     if (itemToAdd.Stackable)
                     {
                         newData.SetAmount(amount);

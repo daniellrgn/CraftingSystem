@@ -18,7 +18,7 @@ public class RecipeList : MonoBehaviour {
     void Start () {
         contentPanel = transform.GetChild(0).GetChild(0).transform;
         recipeDB = GameObject.FindGameObjectWithTag("RecipeDB").GetComponent<RecipeDB>();
-        recipeList = recipeDB.GetRecipeList();
+        recipeList = recipeDB.GetRecipeList<CraftRecipe>();
         inventory = playerInventory.GetComponent<Inventory>();
         input = craftingInput.GetComponent<Inventory>();
         AddButtons();
@@ -26,7 +26,6 @@ public class RecipeList : MonoBehaviour {
 	
 	private void AddButtons()
     {
-        Debug.Log(recipeList.Count);
         for (int i = 0; i < recipeList.Count; i++)
         {
             Recipe recipe = recipeList[i];

@@ -8,7 +8,7 @@ public class Chest : MonoBehaviour {
 
     public GameObject lootInventory;
     public List<Item> items = new List<Item>();
-    public float minDistance;
+    public float minDistance = 5.0f;
 
     private GameObject _player;
     private ItemDB idb;
@@ -45,7 +45,7 @@ public class Chest : MonoBehaviour {
         else if (Input.GetButtonDown("VendorDebug") && lootInventory.activeInHierarchy == false)
         {
             lootInventory.SetActive(true);
-            List<Item> allItems = idb.GetItemList();
+            List<Item> allItems = idb.GetItemList<Item>();
             yield return new WaitForSeconds(0.2f);
             GameObject.FindGameObjectWithTag("lootUITitle").GetComponent<Text>().text = gameObject.name;
 
@@ -69,7 +69,7 @@ public class Chest : MonoBehaviour {
 
     public void AddItem(int ID)
     {
-        Item newItem = idb.GetItemByID(ID);
+        Item newItem = idb.GetItem<Item>(ID);
         items.Add(newItem);
     }
 }
