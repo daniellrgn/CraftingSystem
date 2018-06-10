@@ -2,18 +2,18 @@
 
 public class ItemTool : MonoBehaviour
 {
-    private ItemDB database = null; //new ItemDB();
+    private GameObject itemDB;
     public string databaseName;
     public Item item;
-
+    private ItemDB database;
     public void AddItemToItemDB()
     {
-        database = new ItemDB();
+        database = itemDB.GetComponent<ItemDB>();
         database.InsertItem(item, databaseName);
     }
     public void RemoveItemFromItemDB()
     {
-        database = new ItemDB();
+        database = itemDB.GetComponent<ItemDB>();
         database.RemoveItem(item, databaseName);
     }
 }

@@ -2,21 +2,20 @@
 
 public class RecipeTool : MonoBehaviour
 {
-    private RecipeDB database = null;//new RecipeDB();
+    public GameObject recipeDB;
     public string databaseName;
     public Recipe recipe;
+    private RecipeDB database;
 
     public void AddRecipeToRecipeDB()
     {
-        database = new RecipeDB();
-
+        database = recipeDB.GetComponent<RecipeDB>();
         database.InsertRecipe(recipe, databaseName);
     }
 
     public void RemoveRecipeFromRecipeDB()
     {
-        database = new RecipeDB();
-
+        database = recipeDB.GetComponent<RecipeDB>();
         database.RemoveRecipe(recipe, databaseName);
     }
 }

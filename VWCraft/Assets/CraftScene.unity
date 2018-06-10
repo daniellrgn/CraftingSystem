@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f5fc83ccece0c4db99b2a449c90fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recipeDB: {fileID: 0}
   databaseName: 
   recipe:
     recipeID: 50
@@ -743,12 +744,12 @@ Prefab:
     - target: {fileID: 224020754597185728, guid: d69b088822ee2ad479b4402ddbe7b21d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0000076293945
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224020754597185728, guid: d69b088822ee2ad479b4402ddbe7b21d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000038146973
+      value: -0.000011444092
       objectReference: {fileID: 0}
     - target: {fileID: 224468762843885232, guid: d69b088822ee2ad479b4402ddbe7b21d,
         type: 2}
