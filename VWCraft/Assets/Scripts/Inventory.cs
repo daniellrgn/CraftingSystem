@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour {
         }
         if (playerItems.fileName != "")
         {
-            List<Item> playerItemList = itemDB.GetItemList();
+            List<Item> playerItemList = itemDB.GetItemList<Item>();
             for (int i = 0; i < playerItemList.Count; i++)
             {
                 AddItemByID(playerItemList[i].ID, 5, playerItems);
@@ -48,7 +48,7 @@ public class Inventory : MonoBehaviour {
         {
             dB = itemDB;
         }
-        Item itemToAdd = dB.GetItemByID(ID);
+        Item itemToAdd = dB.GetItem<Item>(ID);
         int idx = GetItemIndexByID(ID);
         if (itemToAdd.Stackable && idx >= 0)
         {
@@ -91,7 +91,7 @@ public class Inventory : MonoBehaviour {
         }
         if (index >= 0 && index < slots.Count && amount > 0)
         {
-            Item itemToAdd = dB.GetItemByID(ID);
+            Item itemToAdd = dB.GetItem<Item>(ID);
             ItemData existData = GetSlotByIndex(index).GetItemData();
             if (existData)
             {

@@ -4,23 +4,15 @@ using System.Collections;
 public class ItemTool : MonoBehaviour
 {
     private ItemDB database = new ItemDB();
-    public string dbID;
+    public string databaseName;
     public Item item;
 
     public void AddItemToItemDB()
     {
-        if(dbID == "")
-        {
-            dbID = "VOID";
-        }
-        database.AddItemAsJson(dbID, item);
+        database.InsertItem(item, databaseName);
     }
     public void RemoveItemFromItemDB()
     {
-        if (dbID == "")
-        {
-            dbID = "VOID";
-        }
-        database.RemoveItemAsJson(dbID, item);
+        database.RemoveItem(item, databaseName);
     }
 }

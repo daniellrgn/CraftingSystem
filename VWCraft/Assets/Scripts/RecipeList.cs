@@ -18,7 +18,7 @@ public class RecipeList : MonoBehaviour {
     void Start () {
         contentPanel = transform.GetChild(0).GetChild(0).transform;
         recipeDB = GameObject.FindGameObjectWithTag("RecipeDB").GetComponent<RecipeDB>();
-        recipeList = recipeDB.GetRecipeList();
+        recipeList = recipeDB.GetRecipeList<CraftRecipe>();
         inventory = playerInventory.GetComponent<Inventory>();
         input = craftingInput.GetComponent<Inventory>();
         AddButtons();

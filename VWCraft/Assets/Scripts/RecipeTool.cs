@@ -4,24 +4,16 @@ using System.Collections;
 public class RecipeTool : MonoBehaviour
 {
     private RecipeDB database = new RecipeDB();
-    public string dbID;
+    public string databaseName;
     public Recipe recipe;
 
     public void AddRecipeToRecipeDB()
     {
-        if(dbID == "")
-        {
-            dbID = "VOID";
-        }
-        database.AddRecipeAsJson(dbID, recipe);
+        database.InsertRecipe(recipe, databaseName);
     }
 
     public void RemoveRecipeFromRecipeDB()
     {
-        if (dbID == "")
-        {
-            dbID = "VOID";
-        }
-        database.RemoveRecipeAsJson(dbID, recipe);
+        database.RemoveRecipe(recipe, databaseName);
     }
 }

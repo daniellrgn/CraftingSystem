@@ -30,7 +30,7 @@ public class LootInventory : Inventory {
 
     public void AddItem(int ID)
     {
-        Item itemToAdd = idb.GetItemByID(ID);
+        Item itemToAdd = idb.GetItem<Item>(ID);
         int index = AtIndex(itemToAdd);
         if (index > -1)//item exists in inventory
         {

@@ -4,16 +4,12 @@ using System.Collections;
 public class DestroyItem : MonoBehaviour
 {
     private ItemDB database = new ItemDB();
-    public string dbID;
+    public string databaseName;
     public Item item;
 
     public void RemoveItemFromItemDB()
     {
-        if (dbID == "")
-        {
-            dbID = "VOID";
-        }
-        database.RemoveItemAsJson(dbID, item);
+        database.RemoveItem(item, databaseName);
     }
 
 }
