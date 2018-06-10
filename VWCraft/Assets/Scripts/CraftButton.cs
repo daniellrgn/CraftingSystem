@@ -34,12 +34,12 @@ public class CraftButton : MonoBehaviour, ICraftStation {
             int result = recipeList[i].Evaluate(allItemIDs);
             if (result >= 0)
             {
-                tryCraftingItem(result);
+                TryCraftingItem(result);
             }
         }
     }
 
-    public void tryCraftingItem(int itemID)
+    public void TryCraftingItem(int itemID)
     {
         if (Output.items[0] != null && (Output.items[0].ID == -1 || Output.items[0].Stackable))
         {

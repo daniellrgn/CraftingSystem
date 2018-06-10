@@ -23,17 +23,10 @@ public class RecipeDB : MonoBehaviour {
                                          new CraftRecipe(2, "Sword", 0, false, new int[]{3, 4}),
                                          new CraftRecipe(3, "GreatSword", 7, true, new int[]{-1, 0, -1, -1, 3, -1, -1, 4, -1}),
                                          new CraftRecipe(4, "Something NEw", 5, false, new int[]{1,2,3 })};
-        LoadRDB();
-    }
 
-    private void LoadRDB()
-    {
-        CraftRecipe recipe;
         for (int i = 0; i < RecipeArray.Length; i++)
         {
-            recipe = RecipeArray[i];
-            //CraftRecipe addRecipe = new CraftRecipe(recipe.recipeID, recipe.created, recipe.itemID, recipe.shaped, recipe.needed);
-            recipeData.Add(recipe);
+            recipeData.Add(RecipeArray[i]);
         }
     }
 
@@ -132,7 +125,7 @@ public class CraftRecipe : Recipe
         this.shaped = shaped;
     }
 
-    override public int Evaluate(int[] input)
+    public override int Evaluate(int[] input)
     {
         if (shaped && CheckItemsExact(input))
         {

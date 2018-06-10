@@ -29,13 +29,13 @@ public class Chest : MonoBehaviour {
     {
         if (Input.GetButtonDown("Use"))
         {
-            Vector3 objPos = this.gameObject.transform.position;
+            Vector3 objPos = gameObject.transform.position;
             Vector3 playerPos = _player.transform.position;
             if (Vector3.Distance(objPos, playerPos) < minDistance && lootInventory.activeInHierarchy == false)
             {
                 lootInventory.SetActive(true);
                 yield return new WaitForSeconds(0.05f);
-                GameObject.FindGameObjectWithTag("lootUITitle").GetComponent<Text>().text = this.gameObject.name;
+                GameObject.FindGameObjectWithTag("lootUITitle").GetComponent<Text>().text = gameObject.name;
                 foreach (Item item in items)
                 {
                     lootInventory.GetComponent<LootInventory>().AddItem(item.ID);
@@ -47,7 +47,7 @@ public class Chest : MonoBehaviour {
             lootInventory.SetActive(true);
             List<Item> allItems = idb.GetItemList();
             yield return new WaitForSeconds(0.2f);
-            GameObject.FindGameObjectWithTag("lootUITitle").GetComponent<Text>().text = this.gameObject.name;
+            GameObject.FindGameObjectWithTag("lootUITitle").GetComponent<Text>().text = gameObject.name;
 
 
             foreach (Item possibleItem in allItems)

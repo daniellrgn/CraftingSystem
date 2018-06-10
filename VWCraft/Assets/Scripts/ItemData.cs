@@ -19,7 +19,7 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     void Start()
     {
-        //inv = transform.parent.parent.parent.parent.GetComponent<Inventory>();
+        // Inventory inv is set when item is added to an inventory or swapped.
         tooltip = GameObject.FindGameObjectWithTag("TooltipController").transform.GetComponent<Tooltip>();
     }
 
@@ -29,8 +29,7 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             if (Input.GetMouseButton(0))
             {
-                //offset = eventData.position - new Vector2(this.transform.position.x, this.transform.position.y);
-                transform.position = eventData.position; //- offset;
+                transform.position = eventData.position;
                 transform.SetParent(transform.root); // Ensures object is rendered on top of other panels
                 GetComponent<CanvasGroup>().blocksRaycasts = false;
             }

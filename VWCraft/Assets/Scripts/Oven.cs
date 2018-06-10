@@ -9,7 +9,6 @@ public class Oven : MonoBehaviour, ICraftStation {
     public GameObject ovenCraftInterface;
     public GameObject inventory;
     public Inventory Input { get; set; }
-    public Inventory Output { get; set; }
     public List<GameObject> map = new List<GameObject>();
 
     private ItemDB itemDB;
@@ -22,7 +21,6 @@ public class Oven : MonoBehaviour, ICraftStation {
         itemDB = GameObject.FindGameObjectWithTag("ItemDB").transform.GetComponent<ItemDB>();
         recipeDB = GameObject.FindGameObjectWithTag("RecipeDB").transform.GetComponent<RecipeDB>();
         Input = ovenCraftInterface.transform.Find("Input").GetComponent<Inventory>();
-        Output = ovenCraftInterface.transform.Find("Output").GetComponent<Inventory>();
     }
 
     public void OnTriggerEnter(Collider other)

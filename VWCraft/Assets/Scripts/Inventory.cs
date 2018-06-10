@@ -194,6 +194,7 @@ public class Inventory : MonoBehaviour {
     public Slot GetSlotByIndex(int index)
     {
         return slots[index].GetComponent<Slot>();
+        
     }
 
     // Finds the first index of an Item and returns its index if found, or -1 on failure.

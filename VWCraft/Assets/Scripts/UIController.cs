@@ -52,7 +52,7 @@ public class UIController : MonoBehaviour
                 {
                     foreach (Transform slot in child.transform)
                     {
-                        GameObject.Destroy(slot.gameObject);
+                        Destroy(slot.gameObject);
                     }
                 }
                 for (int i = 0; i < lootScript.numSlots; i++)
