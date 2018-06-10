@@ -8,7 +8,7 @@ public class Chest : MonoBehaviour {
 
     public GameObject lootInventory;
     public List<Item> items = new List<Item>();
-    public float minDistance;
+    public float minDistance = 5.0f;
 
     private GameObject _player;
     private ItemDB idb;

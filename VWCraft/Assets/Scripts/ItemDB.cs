@@ -17,7 +17,6 @@ public class ItemDB : MonoBehaviour
 
 
     public string databaseName;
-    public List<TableAttribute> tuples = new List<TableAttribute>();
     /////////////////////////////////////////////////////////////////////////
     /// 
     /// 
@@ -25,20 +24,24 @@ public class ItemDB : MonoBehaviour
     /// 
     /// 
     /////////////////////////////////////////////////////////////////////////
-    void CreateTable(String tableName)
+    public void CreateTable(String tableName, List<TableAttribute> tableAttributes, String database)
     {
+        if (database == "")
+        {
+            database = databaseName;
+        }
         if (databaseName != "")
         {
             try
             {
-                string conn = "URI=file:" + Application.dataPath + "/" + databaseName; //Path to database.
+                string conn = "URI=file:" + Application.dataPath + "/" + database; //Path to database.
                 IDbConnection dbconn;
                 dbconn = (IDbConnection)new SqliteConnection(conn);
                 dbconn.Open(); //Open connection to the database.
                 IDbCommand dbcmd = dbconn.CreateCommand();
 
                 string sqlQuery = "CREATE TABLE " + tableName + " (";
-                foreach (TableAttribute entry in tuples)
+                foreach (TableAttribute entry in tableAttributes)
                 {
                     sqlQuery += entry.attribute + " " + entry.dataType;
                     if (entry.maxLength != 0)

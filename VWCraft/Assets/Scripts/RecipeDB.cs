@@ -16,8 +16,7 @@ public class RecipeDB : MonoBehaviour
     private List<CraftRecipe> recipeData = new List<CraftRecipe>();
     private CraftRecipe[] RecipeArray;
     private string RecipesAsJson;
-    public string recipeTable;
-    public string tableName;
+
 
 
     // Use this for initialization
@@ -112,32 +111,6 @@ public class RecipeDB : MonoBehaviour
                 dbcmd.Prepare();
                 dbcmd.ExecuteNonQuery();
 
-                //string sqlQuery = "INSERT INTO " + tableName + "(";
-
-                //var fields = newRecipe.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public);
-                //foreach (var prop in fields)
-                //{
-                //    sqlQuery += prop.Name + ",";
-                //}
-                //sqlQuery = sqlQuery.Substring(0, sqlQuery.Length - 1);
-                //sqlQuery += ") VALUES (";
-                //foreach (var prop in fields)
-                //{
-                //    sqlQuery += "?,";
-                //}
-                //sqlQuery = sqlQuery.Substring(0, sqlQuery.Length - 1);
-                //sqlQuery += ")";
-
-                //dbcmd.CommandText = sqlQuery;
-                //foreach (var prop in fields)
-                //{
-                //    parameter = dbcmd.CreateParameter();
-                //    parameter.ParameterName = prop.Name;
-                //    parameter.Value = prop.GetValue(newRecipe);
-                //    dbcmd.Parameters.Add(parameter);
-                //}
-
-                //dbcmd.ExecuteNonQuery();
                 dbcmd.Dispose();
                 dbcmd = null;
                 dbconn.Close();
@@ -276,26 +249,6 @@ public class RecipeDB : MonoBehaviour
     public string GetDatabaseName()
     {
         return databaseName;
-    }
-
-    public void SetTableName(string name)
-    {
-        tableName = name;
-    }
-
-    public string GetTableName()
-    {
-        return tableName;
-    }
-
-    public void SetRecipeTableName(string name)
-    {
-        recipeTable = name;
-    }
-
-    public string GetRecipeTableName()
-    {
-        return recipeTable;
     }
 
     private void LoadRDB()
